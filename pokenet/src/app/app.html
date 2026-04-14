@@ -1,1 +1,10 @@
-Hello World
+<h1>Pokemon Viewer</h1>
+
+
+<ul>
+  @for (pokemon of pokemons; track pokemon.id) {
+  <li>
+    <strong>{{ pokemon.name }}</strong> - {{ pokemon.type }}
+  </li>
+  }
+</ul>

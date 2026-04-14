@@ -31,6 +31,12 @@ export class PokemonService {
       type: 'Electric',
       description: 'An electric Pokémon that stores energy in its cheeks.',
     },
+    {
+      id: 39,
+      name: 'Jigglypuff',
+      type: 'Fairy',
+      description: 'Sings a lullaby that puts enemies to sleep.'
+    }
   ]
 
   getAll(): Pokemon[] {
