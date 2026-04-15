@@ -44,3 +44,34 @@ h1 {
     gap: 24px;
     align-items: stretch;
 }
+
+.search-container {
+    margin-top: 2.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 30px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+.search-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-red);
+    box-shadow: 0 0 15px rgba(239, 83, 80, 0.3);
+}
+
+.search-input::placeholder {
+    color: var(--text-secondary);
+}

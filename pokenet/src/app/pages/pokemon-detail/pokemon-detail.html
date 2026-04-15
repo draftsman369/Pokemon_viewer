@@ -1,38 +1,58 @@
 @if (pokemon) {
 <div class="detail-container">
     <div class="back-link">
-        <a routerLink="/" class="btn-back">← Back to Pokedex</a>
+        <a routerLink="/pokedex" class="btn-back">← Back to Pokedex</a>
     </div>
 
-    <div class="detail-card">
+    <!-- Card 1: Pokemon details -->
+    <div class="detail-card pokemon-card">
         <div class="image-section">
             <div class="image-background">
-                <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + pokemon.id + '.png'" 
-                     [alt]="pokemon.name" class="detail-image">
+                <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + pokemon.id + '.png'"
+                    [alt]="pokemon.name" class="detail-image">
             </div>
             <span class="detail-id">#{{ pokemon.id }}</span>
         </div>
-        
+
         <div class="info-section">
             <h1 class="detail-name">{{ pokemon.name }}</h1>
-            
+
             <div class="type-container">
                 <span class="type-badge">{{ pokemon.type }}</span>
             </div>
-            
+
             <div class="description-box">
                 <h3>About</h3>
                 <p>{{ pokemon.description }}</p>
             </div>
         </div>
     </div>
+
+    <!-- Card 2: Evolutions -->
+    @if (evolutionChain.length > 0) {
+    <div class="detail-card evolution-card">
+        <div class="evolution-card-content">
+            <h2>Evolutions</h2>
+
+            <div class="evolution-row">
+                @for (ev of evolutionChain; track ev.id) {
+                <a [routerLink]="['/pokemon', ev.id]" class="evolution-link" [class.active-ev]="ev.id === pokemon.id">
+                    <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + ev.id + '.png'"
+                        [alt]="ev.name">
+                    <span>{{ ev.name }}</span>
+                </a>
+                }
+            </div>
+        </div>
+    </div>
+    }
 </div>
 } @else {
 <div class="not-found-container">
     <div class="not-found-card">
         <h2>Pokemon Not Found</h2>
         <p>The Pokemon you are looking for doesn't exist.</p>
-        <a routerLink="/" class="btn-back">← Back To Pokedex</a>
+        <a routerLink="/pokedex" class="btn-back">← Back To Pokedex</a>
     </div>
 </div>
 }

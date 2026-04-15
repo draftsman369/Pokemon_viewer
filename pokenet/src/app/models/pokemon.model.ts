@@ -3,4 +3,5 @@ export interface Pokemon {
     type: string,
     name: string,
     description: string,
+    evolutions?: number[]
 }

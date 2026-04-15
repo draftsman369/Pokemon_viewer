@@ -30,13 +30,18 @@
 }
 
 .detail-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     background: var(--surface-color);
     border: 1px solid var(--glass-border);
     border-radius: 24px;
     overflow: hidden;
     box-shadow: var(--shadow-lg);
+    margin-bottom: 2rem;
+}
+
+/* Pokemon main card */
+.pokemon-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .image-section {
@@ -78,9 +83,17 @@
 }
 
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .detail-id {
@@ -150,6 +163,67 @@
     margin: 0;
 }
 
+/* Evolution card */
+.evolution-card {
+    padding: 2rem;
+}
+
+.evolution-card-content h2 {
+    margin: 0 0 1.5rem 0;
+    font-size: 2rem;
+    color: var(--text-primary);
+}
+
+.evolution-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.evolution-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1rem;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+    width: 110px;
+}
+
+.evolution-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.active-ev {
+    border-color: var(--accent-red);
+    box-shadow: 0 0 15px rgba(239, 83, 80, 0.2);
+    pointer-events: none;
+}
+
+.evolution-link img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.evolution-link:hover img {
+    transform: scale(1.1);
+}
+
+.evolution-link span {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Not found */
 .not-found-container {
     display: flex;
     justify-content: center;
@@ -177,20 +251,27 @@
     margin-bottom: 2.5rem;
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 900px) {
-    .detail-card {
+    .pokemon-card {
         grid-template-columns: 1fr;
     }
+
     .image-section {
         border-right: none;
         border-bottom: 1px solid var(--glass-border);
         padding: 3rem 2rem;
     }
+
     .info-section {
         padding: 3rem 2rem;
     }
+
     .detail-name {
         font-size: 2.8rem;
+    }
+
+    .evolution-card {
+        padding: 1.5rem;
     }
 }

@@ -5,11 +5,16 @@
             <h1>Pokenet Explorer</h1>
         </div>
         <p class="subtitle">Discover the world of Pokémon</p>
+        
+        <div class="search-container">
+            <input type="text" placeholder="Search Pokémon..." (input)="onSearch($event)" class="search-input">
+        </div>
     </header>
-    
+
+
     <div class="pokemon-grid">
-        @for (pokemon of pokemons; track pokemon.id) {
-            <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
+        @for (pokemon of filteredPokemons(); track pokemon.id) {
+        <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
         }
     </div>
 </div>
