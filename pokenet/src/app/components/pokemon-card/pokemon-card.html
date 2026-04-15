@@ -1,4 +1,15 @@
-<div class="card">
-    <h2>{{ pokemon.name }}</h2>
-    <p><strong>Type:</strong> {{ pokemon.type }}</p>
-</div>
+<a [routerLink]="['pokemon/', pokemon.id]" class="pokemon-card-link">
+    <div class="pokemon-card">
+        <div class="card-image-wrapper">
+            <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + pokemon.id + '.png'"
+                [alt]="pokemon.name" class="pokemon-image" loading="lazy">
+        </div>
+        <div class="card-content">
+            <span class="pokemon-id">#{{ pokemon.id }}</span>
+            <h2 class="pokemon-name">{{ pokemon.name }}</h2>
+            <div class="pokemon-type">
+                <span class="type-badge">{{ pokemon.type }}</span>
+            </div>
+        </div>
+    </div>
+</a>

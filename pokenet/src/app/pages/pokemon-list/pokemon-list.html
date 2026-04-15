@@ -1,6 +1,15 @@
-<h2>Pokemon Viewer</h2>
-<div>
-    @for (pokemon of pokemons; track pokemon.id) {
-    <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
-    }
+<div class="list-container">
+    <header class="app-header">
+        <div class="logo">
+            <span class="pokeball-icon">🔴</span>
+            <h1>Pokenet Explorer</h1>
+        </div>
+        <p class="subtitle">Discover the world of Pokémon</p>
+    </header>
+    
+    <div class="pokemon-grid">
+        @for (pokemon of pokemons; track pokemon.id) {
+            <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
+        }
+    </div>
 </div>

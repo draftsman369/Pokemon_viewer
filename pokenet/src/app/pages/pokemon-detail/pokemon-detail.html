@@ -1,2 +1,38 @@
-<h1>Pokemon Details Page</h1>
-<p>This will show details of one Pokémon.</p>
+@if (pokemon) {
+<div class="detail-container">
+    <div class="back-link">
+        <a routerLink="/" class="btn-back">← Back to Pokedex</a>
+    </div>
+
+    <div class="detail-card">
+        <div class="image-section">
+            <div class="image-background">
+                <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + pokemon.id + '.png'" 
+                     [alt]="pokemon.name" class="detail-image">
+            </div>
+            <span class="detail-id">#{{ pokemon.id }}</span>
+        </div>
+        
+        <div class="info-section">
+            <h1 class="detail-name">{{ pokemon.name }}</h1>
+            
+            <div class="type-container">
+                <span class="type-badge">{{ pokemon.type }}</span>
+            </div>
+            
+            <div class="description-box">
+                <h3>About</h3>
+                <p>{{ pokemon.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+} @else {
+<div class="not-found-container">
+    <div class="not-found-card">
+        <h2>Pokemon Not Found</h2>
+        <p>The Pokemon you are looking for doesn't exist.</p>
+        <a routerLink="/" class="btn-back">← Back To Pokedex</a>
+    </div>
+</div>
+}
